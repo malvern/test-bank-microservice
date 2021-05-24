@@ -1,0 +1,25 @@
+server:
+  port: 8000
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    config:
+      server:
+        git:
+          clone-on-start: true
+          force-pull: true
+          uri: https://github.com/malvern/test-bank-configs.git
+          default-label: main
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+---

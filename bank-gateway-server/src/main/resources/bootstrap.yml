@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: bank-gateway-server
+  cloud:
+    config:
+      uri: http://localhost:8000
+      name: bank-gateway-server
+  profiles:
+    active: dev
+
+
