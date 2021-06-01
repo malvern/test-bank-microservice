@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  context:
+    build :
+      context: ../bank-gateway-server/
+      dockerfile: Dockerfile
+    image: bank-gateway-server:latest
+    ports:
+      - "127.0.0.1:8010:8080"
+

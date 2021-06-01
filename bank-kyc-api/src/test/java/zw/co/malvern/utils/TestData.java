@@ -1,6 +1,9 @@
 package zw.co.malvern.utils;
 
+import org.junit.jupiter.api.Test;
 import zw.co.malvern.api.CustomerRequest;
+
+import java.time.LocalDate;
 
 public class TestData {
 
@@ -11,4 +14,5 @@ public class TestData {
         customerRequest.setAge(30);
         return customerRequest;
     }
+    
 }
