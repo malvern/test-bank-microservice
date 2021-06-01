@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="bank-kyc-api" />
         <module name="bank-config-server" />
         <module name="bank-gateway-server" />
-        <module name="bank-kyc-api" />
       </profile>
     </annotationProcessing>
   </component>
