@@ -1,18 +1,15 @@
 package zw.co.malvern.utils;
 
-import org.junit.jupiter.api.Test;
-import zw.co.malvern.api.CustomerRequest;
-
-import java.time.LocalDate;
+import zw.co.malvern.api.CustomerAccountRequest;
 
 public class TestData {
 
-    public static CustomerRequest accountCreationRequest(){
-        final CustomerRequest customerRequest = new CustomerRequest();
-        customerRequest.setName("malvern");
-        customerRequest.setSurname("dongeni");
-        customerRequest.setAge(30);
-        return customerRequest;
+    public static CustomerAccountRequest accountCreationRequest(){
+        final CustomerAccountRequest customerAccountRequest = new CustomerAccountRequest();
+        customerAccountRequest.setName("malvern");
+        customerAccountRequest.setSurname("dongeni");
+        customerAccountRequest.setAge(30);
+        return customerAccountRequest;
     }
     
 }

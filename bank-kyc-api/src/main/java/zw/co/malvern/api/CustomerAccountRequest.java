@@ -1,6 +1,6 @@
 package zw.co.malvern.api;
 
-public class CustomerRequest {
+public class CustomerAccountRequest {
     private String name;
     private String surname;
     private int age;

@@ -10,7 +10,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import zw.co.malvern.api.AccountResponse;
-import zw.co.malvern.api.CustomerRequest;
+import zw.co.malvern.api.CustomerAccountRequest;
 import zw.co.malvern.utils.response.Response;
 
 import java.util.Objects;
@@ -50,11 +50,11 @@ public class CustomerResource {
     @Test
     @DisplayName("failed response: 400")
     void givenInvalidCustomerDetails_whenCreatingCustomerAccount_shouldReturnFailedResponse() {
-        final CustomerRequest customerRequest = accountCreationRequest();
-        customerRequest.setName("");
+        final CustomerAccountRequest customerAccountRequest = accountCreationRequest();
+        customerAccountRequest.setName("");
         final Response response = new Response("failed to create account.customer name cannot be empty or null",
                 false);
-        processRequestAndAssert(customerRequest, response, 400);
+        processRequestAndAssert(customerAccountRequest, response, 400);
     }
 
     @Test
@@ -65,13 +65,13 @@ public class CustomerResource {
     }
 
 
-    private void processRequestAndAssert(CustomerRequest customerRequest,
+    private void processRequestAndAssert(CustomerAccountRequest customerAccountRequest,
                                          Response expectedResponse,
                                          int expectedStatusCode) {
         final UriComponents url = UriComponentsBuilder.fromUriString(createAccountUrl)
                 .port(localPort).build();
         final ResponseEntity<AccountResponse> response = testRestTemplate
-                .postForEntity(url.toString(), customerRequest, AccountResponse.class);
+                .postForEntity(url.toString(), customerAccountRequest, AccountResponse.class);
         assertThat(response).as("account creation response").isNotNull();
         assertThat(response.getStatusCode().value()).as("status").isEqualTo(expectedStatusCode);
         assertThat(Objects.requireNonNull(response.getBody()).isSuccess()).as("truth").isFalse();
